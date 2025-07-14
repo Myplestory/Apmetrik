@@ -1,0 +1,132 @@
+:root {
+  --overlay-bg: rgba(30, 30, 30, 0.85);
+  --card-bg: rgba(40, 40, 40, 0.9);
+  --primary: #1db954;
+  --text: #fff;
+  --muted: rgba(255, 255, 255, 0.6);
+  --radius: 10px;
+  --padding: 10px;
+  --font-main: 'Segoe UI', sans-serif;
+  --font-size-sm: 13px;
+  --font-size-md: 15px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: var(--font-main);
+  background: transparent;
+  color: var(--text);
+
+}
+
+/* ────────────── TOPBAR ────────────── */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* ✅ Vertically centers children */
+  background: var(--overlay-bg);
+  height: 36px; /* ⬅️ Match your window height */
+  padding: 0 14px; /* ⬅️ Remove vertical padding to fit height */
+  border-radius: var(--radius);
+  -webkit-app-region: drag;
+  font-size: var(--font-size-sm);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+/* Scrollable track text */
+.track-scroll {
+  overflow: hidden;
+  flex-grow: 1;
+  white-space: nowrap;
+  min-width: 120px;
+  max-width: 100%;
+  margin: 2%;
+}
+
+.scroll-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 12s linear infinite;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  -webkit-app-region: no-drag;
+}
+
+/* ────────────── SMALL ALBUM ART ────────────── */
+
+.album-art-small {
+  width: 30px;
+  height: 30px;
+  border-radius: 0px;
+  object-fit: cover;
+}
+
+/* ────────────── MODE SELECT ────────────── */
+
+.mode-select {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  font-size: var(--font-size-sm);
+  border-radius: 6px;
+}
+
+/* ────────────── METRICS ────────────── */
+
+.apm,
+.focus {
+  font-size: var(--font-size-sm);
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* ────────────── HIDE OLD UNUSED STYLES ────────────── */
+
+track-info,
+apm-display,
+focus-meter,
+.track-info,
+.album-art,
+.track,
+.artist {
+  display: none;
+}

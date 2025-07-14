@@ -1,0 +1,37 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+release/
+
+# Electron-packager / builder
+*.asar
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json  # optional: include if you want exact versions tracked
+
+# Env files
+.env
+.env.local
+.env.production
+.env.development
+
+# IDEs / editors
+.vscode/
+.idea/
+*.swp
+
+# Electron auto updater
+*.old
+pending/

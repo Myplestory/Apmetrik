@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apmetrik App</title>
+  <link rel="stylesheet" href="../styles/app.css" />
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="logo">Apmetrik</div>
+      <nav>
+        <button class="nav-btn" data-section="player">🎵 Player</button>
+        <button class="nav-btn" data-section="playlists">📂 Playlists</button>
+        <button class="nav-btn" data-section="sync">🔄 Sync</button>
+        <button class="nav-btn" data-section="settings">⚙️ Settings</button>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section id="player-section" class="section active">
+        <h2>Now Playing</h2>
+        <div class="now-playing">
+          <img id="expanded-album" src="../assets/cover.jpg" class="album-large" />
+          <div class="track-data">
+            <div id="expanded-title" class="track-title">Track</div>
+            <div id="expanded-artist" class="track-artist">Artist</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="playlists-section" class="section hidden">
+        <h2>Playlists</h2>
+        <div id="playlist-container">Loading user playlists...</div>
+      </section>
+
+      <section id="sync-section" class="section hidden">
+        <h2>Sync Services</h2>
+        <button id="connect-spotify">Connect Spotify</button>
+        <button id="connect-youtube">Connect YouTube</button>
+        <button id="connect-soundcloud">Connect SoundCloud</button>
+      </section>
+
+      <section id="settings-section" class="section hidden">
+        <h2>Settings</h2>
+        <label>
+          <input type="checkbox" id="track-global-input" /> Enable Global APM Tracking
+        </label>
+        <label>
+          <input type="checkbox" id="auto-mode-switch" /> Auto Mode Switching (Game/Study)
+        </label>
+        <label>
+          <input type="checkbox" id="theme-toggle" /> Dark Mode
+        </label>
+      </section>
+    </main>
+  </div>
+
+  <!-- Load section switcher + theme handler -->
+  <script type="module" src="../src/theme.js"></script>
+  <script type="module" src="../src/sectionRouter.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Prevent white border/background flicker -->
+  <meta name="theme-color" content="#00000000" />
+  <meta name="background-color" content="#00000000" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: file:;" />
+  <title></title>
+  <link rel="stylesheet" href="../styles/overlay.css" />
+</head>
+<style>
+    /* Hide scrollbars */
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+<body>
+  <!-- ⬇️ Load static layout via HTML partial -->
+  <div id="header"></div>
+
+  <!-- ⬇️ Dynamic interactive Web Components -->
+  <track-info></track-info>
+  <apm-display></apm-display>
+  <focus-meter></focus-meter>
+
+  <!-- Scripts -->
+  <script type="module" src="../src/renderer.js"></script>
+</body>
+</html>
