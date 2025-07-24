@@ -1,18 +1,12 @@
-const { contextBridge } = require('electron');
-const fs = require('fs');
-const path = require('path');
+const { contextBridge, ipcRenderer } = require("electron");
+const apm = require("./src/modules/apm");
+const focus = require("./src/modules/focus");
+const spotify = require("./src/modules/spotify");
 
-const settingsPath = path.join(__dirname, 'data', 'state.json');
-
-contextBridge.exposeInMainWorld('apmetrik', {
-  getSettings: () => {
-    try {
-      return JSON.parse(fs.readFileSync(settingsPath));
-    } catch {
-      return {};
-    }
-  },
-  saveSettings: (data) => {
-    fs.writeFileSync(settingsPath, JSON.stringify(data, null, 2));
-  }
+contextBridge.exposeInMainWorld("apmetrik", {
+  getApm: () => apm.getCurrentApm(),
+  onApmUpdate: (callback) => ipcRenderer.on("apm-update", (_e, data) => callback(data)),
+  playSong: (songId) => spotify.play(songId),
+  getFocus: () => focus.getCurrentState(),
 });
+

@@ -1,7 +1,9 @@
-const { app, BrowserWindow } = require('electron');
-const { globalShortcut } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, globalShortcut } = require("electron");
+const path = require("path");
+const isDev = !app.isPackaged;
 
+let overlayWindow;
+let mainAppWindow;
 
 function createOverlayWindow() {
   const PADDING_X = 8;
@@ -18,13 +20,15 @@ function createOverlayWindow() {
     skipTaskbar: true,
     hasShadow: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, "preload.js"),
+      contextIsolation: true,
+      nodeIntegration: false,
       backgroundThrottling: false,
-    }
+    },
   });
 
-  overlayWindow.setBackgroundColor('#00000000');
-  overlayWindow.loadFile('public/overlay.html');
+  overlayWindow.setBackgroundColor("#00000000");
+  overlayWindow.loadFile("public/overlay.html");
 }
 
 function createMainAppWindow() {
@@ -36,26 +40,34 @@ function createMainAppWindow() {
     alwaysOnTop: false,
     focusable: true,
     resizable: true,
-    show: false, // Start hidden
+    show: false, // start hidden
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-    }
+      preload: path.join(__dirname, "preload.js"),
+      contextIsolation: true,
+      nodeIntegration: false,
+    },
   });
 
-  mainAppWindow.loadFile('public/app.html');
-  mainAppWindow.on('close', (e) => {
+  if (isDev) {
+    // Vite dev server for hot reload
+    mainAppWindow.loadURL("http://localhost:5173");
+  } else {
+    // React production build (Vite's output)
+    mainAppWindow.loadFile(path.join(__dirname, "dist/index.html"));
+  }
+
+  mainAppWindow.on("close", (e) => {
     e.preventDefault();
     mainAppWindow.hide();
     overlayWindow.showInactive();
   });
 }
 
-
 app.whenReady().then(() => {
   createOverlayWindow();
   createMainAppWindow();
 
-  globalShortcut.register('CommandOrControl+Shift+A', () => {
+  globalShortcut.register("CommandOrControl+Shift+A", () => {
     if (mainAppWindow.isVisible()) {
       mainAppWindow.hide();
       overlayWindow.showInactive();
@@ -66,7 +78,7 @@ app.whenReady().then(() => {
     }
   });
 
-  app.on('activate', () => {
+  app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createOverlayWindow();
       createMainAppWindow();
@@ -74,10 +86,10 @@ app.whenReady().then(() => {
   });
 });
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") app.quit();
 });
 
-app.on('will-quit', () => {
+app.on("will-quit", () => {
   globalShortcut.unregisterAll();
 });

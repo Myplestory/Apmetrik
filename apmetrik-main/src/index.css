@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Core backgrounds - Dark theme optimized */
+    --background: 218 23% 7%;
+    --background-elevated: 218 27% 9%;
+    --background-subtle: 218 20% 5%;
+    --foreground: 220 14% 96%;
+
+    /* Cards and surfaces */
+    --card: 218 27% 9%;
+    --card-hover: 218 27% 11%;
+    --card-foreground: 220 14% 96%;
+
+    /* Overlays */
+    --popover: 218 27% 9%;
+    --popover-foreground: 220 14% 96%;
+
+    /* Primary music brand colors */
+    --primary: 271 81% 56%;
+    --primary-glow: 271 100% 70%;
+    --primary-muted: 271 60% 35%;
+    --primary-foreground: 220 14% 96%;
+
+    /* Secondary accent */
+    --secondary: 218 27% 12%;
+    --secondary-hover: 218 27% 15%;
+    --secondary-foreground: 220 14% 96%;
+
+    /* Muted elements */
+    --muted: 218 23% 11%;
+    --muted-foreground: 220 9% 55%;
+
+    /* Interactive accent */
+    --accent: 195 100% 50%;
+    --accent-glow: 195 100% 65%;
+    --accent-foreground: 220 14% 96%;
+
+    /* Status colors */
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 220 14% 96%;
+
+    /* Borders and inputs */
+    --border: 218 23% 15%;
+    --border-hover: 218 23% 20%;
+    --input: 218 23% 15%;
+    --ring: 271 81% 56%;
+
+    /* Music player specific */
+    --player-bg: 218 30% 8%;
+    --player-controls: 218 23% 12%;
+    --progress-bg: 218 23% 15%;
+    --progress-fill: 271 81% 56%;
+    --waveform: 195 100% 50%;
+
+    /* Metrics and data visualization */
+    --chart-1: 271 81% 56%;
+    --chart-2: 195 100% 50%;
+    --chart-3: 142 76% 36%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 340 82% 52%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(271 81% 56%), hsl(271 100% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(195 100% 50%), hsl(195 100% 65%));
+    --gradient-card: linear-gradient(135deg, hsl(218 27% 9%), hsl(218 27% 11%));
+
+    /* Shadows and glows */
+    --shadow-glow: 0 0 30px hsl(271 81% 56% / 0.3);
+    --shadow-accent: 0 0 20px hsl(195 100% 50% / 0.2);
+    --shadow-card: 0 4px 12px hsl(218 30% 4% / 0.4);
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 218 30% 8%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 271 81% 56%;
+    --sidebar-primary-foreground: 220 14% 96%;
+    --sidebar-accent: 218 27% 12%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 218 23% 15%;
+    --sidebar-ring: 271 81% 56%;
+  }
+
+  /* Dark mode is the default */
+  .dark {
+    /* Already defined above as default */
+  }
+
+  /* Light mode overrides (minimal, as this is primarily a dark app) */
+  .light {
+    --background: 220 14% 96%;
+    --background-elevated: 0 0% 100%;
+    --foreground: 218 23% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 218 23% 7%;
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 9% 45%;
+    --border: 220 13% 91%;
+    --sidebar-background: 220 14% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

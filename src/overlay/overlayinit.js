@@ -1,6 +1,6 @@
-import { initAPMTracker, onAPMUpdate } from './modules/apm.js';
-import { initFocusMeter } from './modules/focus.js';
-import { updateTrackInfo } from './modules/trackinfo.js';
+import { initAPMTracker, onAPMUpdate } from '../modules/apm.js';
+import { initFocusMeter } from '../modules/focus.js';
+import { updateTrackInfo } from '../modules/trackinfo.js';
 
 async function loadPartial(id, path) {
   const res = await fetch(path);

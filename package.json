@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch . --ext js,html,css --exec \"electron .\""
+    "start": "concurrently \"npm run react\" \"npm run electron\"",
+    "electron": "electron .",
+    "react": "cd apmetrik-main && npm run dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "concurrently": "^9.2.0",
     "electron": "^37.2.1",
     "nodemon": "^3.1.10"
   }
