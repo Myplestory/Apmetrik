@@ -6,7 +6,7 @@ import { RecentPlaylist } from "@/components/RecentPlaylist";
 import { Music, Clock, Headphones, TrendingUp, Play, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import mockimage from "@/assets/cover.jpg";
+import musicHero from "@/assets/cover.jpg";
 
 const Index = () => {
   return (
@@ -37,7 +37,7 @@ const Index = () => {
             <div className="relative mb-8 rounded-2xl overflow-hidden">
               <div 
                 className="h-64 bg-cover bg-center relative"
-                style={{ backgroundImage: `url(${mockimage})` }}
+                style={{ backgroundImage: `url(${musicHero})` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/20" />
                 <div className="relative z-10 p-8 h-full flex flex-col justify-center">

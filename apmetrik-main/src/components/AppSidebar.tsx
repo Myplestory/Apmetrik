@@ -55,7 +55,7 @@ export function AppSidebar() {
             </div>
             {!collapsed && (
               <div>
-                <h2 className="text-lg font-bold text-sidebar-foreground">SyncFlow</h2>
+                <h2 className="text-lg font-bold text-sidebar-foreground">Apmetrik</h2>
                 <p className="text-xs text-muted-foreground">Music Overlay</p>
               </div>
             )}
