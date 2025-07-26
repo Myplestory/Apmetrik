@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { PlayerBar } from "@/components/PlayerBar";
+import { DragBar } from "@/components/ui/dragbar"
 import Index from "./pages/Index";
 import Library from "./pages/Library";
 import Playlists from "./pages/Playlists";
@@ -22,6 +23,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <SidebarProvider>
+          <DragBar />
           <div className="min-h-screen flex w-full bg-background">
             <AppSidebar />
             <main className="flex-1 flex flex-col">

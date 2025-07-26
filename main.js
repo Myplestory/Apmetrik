@@ -33,8 +33,8 @@ function createOverlayWindow() {
 
 function createMainAppWindow() {
   mainAppWindow = new BrowserWindow({
-    width: 1000,
-    height: 700,
+    width: 1360,
+    height: 860,
     frame: false,
     transparent: false,
     alwaysOnTop: false,

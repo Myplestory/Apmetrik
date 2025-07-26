@@ -11,13 +11,13 @@ import musicHero from "@/assets/cover.jpg";
 const Index = () => {
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-background">
+        <div
+    className="w-[1000px] h-[720px] overflow-hidden border border-border mx-auto bg-background"
+  >
         <AppSidebar />
-        
-        {/* Main Content */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col overflow-hidden">
           {/* Header */}
-          <header className="bg-background-elevated border-b border-border p-4 flex items-center justify-between">
+          <header className="shrink-0 bg-background-elevated border-b border-border p-4 flex items-center justify-between overflow-hidden">
             <div className="flex items-center gap-4">
               <SidebarTrigger />
               <div>
@@ -32,7 +32,7 @@ const Index = () => {
           </header>
 
           {/* Main Content Area */}
-          <main className="flex-1 p-6 overflow-auto">
+          <main className="flex-1 overflow-y-auto p-6">
             {/* Hero Section */}
             <div className="relative mb-8 rounded-2xl overflow-hidden">
               <div 
@@ -151,7 +151,9 @@ const Index = () => {
           </main>
 
           {/* Player Bar */}
-          <PlayerBar />
+          <div className="h-[60px] shrink-0">
+            <PlayerBar />
+          </div>
         </div>
       </div>
     </SidebarProvider>
