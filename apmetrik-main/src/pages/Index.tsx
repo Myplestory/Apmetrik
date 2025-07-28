@@ -34,7 +34,7 @@ const Index = () => {
           {/* Main Content Area */}
           <main className="flex-1 overflow-y-auto p-6">
             {/* Hero Section */}
-            <div className="relative mb-8 rounded-2xl overflow-hidden">
+            <div className="relative mb-8 rounded-2xl">
               <div 
                 className="h-64 bg-cover bg-center relative"
                 style={{ backgroundImage: `url(${musicHero})` }}
