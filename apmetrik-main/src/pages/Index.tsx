@@ -12,12 +12,12 @@ const Index = () => {
   return (
     <SidebarProvider>
         <div
-    className="w-[1000px] h-[720px] overflow-hidden border border-border mx-auto bg-background"
+    className="w-[1000px] h-[720px] overflow-hidden mx-auto bg-background"
   >
         <AppSidebar />
         <div className="flex-1 flex flex-col overflow-hidden">
           {/* Header */}
-          <header className="shrink-0 bg-background-elevated border-b border-border p-4 flex items-center justify-between overflow-hidden">
+          <header className="shrink-0 bg-background-elevated border-b border-border p-4 flex items-center justify-between overflow-hidden mb-4">
             <div className="flex items-center gap-4">
               <SidebarTrigger />
               <div>
@@ -32,32 +32,30 @@ const Index = () => {
           </header>
 
           {/* Main Content Area */}
-          <main className="flex-1 overflow-y-auto p-6">
-            {/* Hero Section */}
-            <div className="relative mb-8 rounded-2xl">
-              <div 
-                className="h-64 bg-cover bg-center relative"
-                style={{ backgroundImage: `url(${musicHero})` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/20" />
-                <div className="relative z-10 p-8 h-full flex flex-col justify-center">
-                  <h2 className="text-4xl font-bold text-foreground mb-2">
-                    Your Music, <span className="text-transparent bg-clip-text bg-gradient-primary">Everywhere</span>
-                  </h2>
-                  <p className="text-lg text-muted-foreground mb-4 max-w-md">
-                    Seamlessly sync and manage your playlists across Spotify, YouTube, SoundCloud and more.
-                  </p>
-                  <div className="flex gap-3">
-                    <Button size="lg" className="bg-gradient-primary hover:shadow-glow">
-                      Start Syncing
-                    </Button>
-                    <Button size="lg" variant="secondary" className="hover:bg-secondary-hover">
-                      View Analytics
-                    </Button>
-                  </div>
-                </div>
+        <div className="relative rounded-2xl overflow-hidden mb-4">
+          <div 
+            className="h-48 bg-cover bg-center relative"
+            style={{ backgroundImage: `url(${musicHero})` }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/20" />
+            <div className="relative z-10 p-6 h-full flex flex-col justify-center">
+              <h2 className="text-3xl font-bold text-foreground mb-2">
+                Your Music, <span className="text-transparent bg-clip-text bg-gradient-primary">Everywhere</span>
+              </h2>
+              <p className="text-muted-foreground mb-4 max-w-md">
+                Seamlessly sync and manage your playlists across Spotify, YouTube, SoundCloud and more.
+              </p>
+              <div className="flex gap-3">
+                <Button className="bg-gradient-primary hover:shadow-glow">
+                  Start Syncing
+                </Button>
+                <Button variant="secondary" className="hover:bg-secondary-hover">
+                  View Analytics
+                </Button>
               </div>
             </div>
+          </div>
+        </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -148,7 +146,6 @@ const Index = () => {
                 </Card>
               </div>
             </div>
-          </main>
 
           {/* Player Bar */}
           <div className="h-[60px] shrink-0">
