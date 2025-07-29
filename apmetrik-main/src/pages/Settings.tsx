@@ -82,7 +82,7 @@ export default function Settings() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="platforms" className="space-y-6">
+        <TabsContent value="platforms" className="overflow-y-auto scrollbar-hide max-h-[70vh] space-y-6 pr-2">
           <Card>
             <CardHeader>
               <CardTitle>Connected Platforms</CardTitle>

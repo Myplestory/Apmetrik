@@ -91,7 +91,7 @@ const Index = () => {
             {/* Content Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Recent Playlists */}
-              <div className="lg:col-span-2">
+              <div className="lg:col-span-2 overflow-y-auto scrollbar-hide">
                 <RecentPlaylist />
               </div>
 
