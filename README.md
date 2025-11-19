@@ -12,6 +12,18 @@ A cross-platform music management and analytics desktop application built with E
 - 🔄 **Overlay Mode** - Quick access overlay window that stays on top
 - ⌨️ **Keyboard Shortcuts** - Fast window toggling with `Ctrl+Shift+A` (or `Cmd+Shift+A` on Mac)
 
+### Landing Page
+![Landing Page](./images/landing.png)
+
+### Library
+![Library](./images/library.png)
+
+### Analytics
+![Analytics](./images/analytics.png)
+
+### Sessions
+![Sessions](./images/sessions.png)
+
 ## Tech Stack
 
 - **Frontend**: React 19, TypeScript, Vite
